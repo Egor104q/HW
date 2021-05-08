@@ -10,7 +10,7 @@ public class Task2 {
     }
 
     private static int countWords(String text) {
-        String[] array = text.split("[#$%^&!?{}();:,.0-9\\s]+");
-        return array.length;
+        String[] crossItOut = text.split("[@#$%^&*!?<>{}()`~;:,.0-9\\s]+");
+        return crossItOut.length;
     }
 }
