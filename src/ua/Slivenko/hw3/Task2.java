@@ -1,18 +1,17 @@
 package ua.Slivenko.hw3;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class Task2
-{
+public class Task2 {
     public static void main(String[] args) {
-        System.out.println("Введите предложение");
-        String text = new Scanner(System.in).nextLine();
-        System.out.println("Количество слов в предложении: " + countWords(text));
-    }
-
-    private static int countWords(String text) {
-        String[] array = text.split("[#$%^&!?,.0-9\\s]+");
-        return array.length;
+        int words = 1;
+        Scanner text = new Scanner(System.in);
+        System.out.println("Введите предложение ");
+        String str = text.nextLine();
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == ' ' && str.charAt(i - 1) != ' ')
+                words++;
+        }
+        System.out.println("Количество слов в предложении: " + words);
     }
 }
