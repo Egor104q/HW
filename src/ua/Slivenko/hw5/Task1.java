@@ -16,8 +16,8 @@ public class Task1 {
     private static int[][] nambers2(int[][] nambers1) {
         for (int i = 1; i < nambers1.length; i = i + 2) {
             for (int j = 0; j < nambers1.length; j++) {
-                int min = 0;
-                int max = 100;
+                int min = -100;
+                int max = 0;
                 int diff = max - min;
                 Random random = new Random();
                 nambers1[i][j] = random.nextInt(diff + 1);
@@ -30,8 +30,8 @@ public class Task1 {
     private static int[][] nambers1(int[][] array) {
         for (int i = 0; i < array.length; i=i+2) {
             for (int j = 0; j < array.length; j++) {
-                int min = -100;
-                int max = 0;
+                int min = 0;
+                int max = 100;
                 int diff = max - min;
                 Random random = new Random();
                 array[i][j] = random.nextInt(diff + 1);
