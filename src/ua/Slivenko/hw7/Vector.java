@@ -1,54 +1,63 @@
 package ua.Slivenko.hw7;
 
+import java.util.Random;
+
 public class Vector {
     protected int x;
     protected int y;
     protected int z;
-    protected int x2;
-    protected int y2;
-    protected int z2;
 
-
-}
-
-    public int root(int x, int y, int z) {
-        Math.pow(x, 2);
-        Math.pow(y, 2);
-        Math.pow(z, 2);
-        double sum = x + y + z;
-        Math.sqrt(sum);
-        return (int) sum;
+    public Vector(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
-    public int root2(int x2, int y2, int z2) {
-        Math.pow(x2, 2);
-        Math.pow(y2, 2);
-        Math.pow(z2, 2);
-        double sum2 = x2 + y2 + z2;
-        Math.sqrt(sum2);
-        return (int) sum2;
+
+    @Override
+    public String toString() {
+        return "Vector{" +
+                "x=" + x +
+                ", y=" + y +
+                ", z=" + z +
+                '}';
     }
 
-    public int crossProduct(int x, int y, int z, int x2, int y2, int z2) {
-        int i = (y * z2 - z * y2);
-        int j = (z * x2 - x * z2);
-        int k = (x * y2 - y * x2);
-        return int(i), int(j), int(k);
+    double root(Vector vector) {
+        return Math.abs(Math.sqrt(Math.pow(vector.x, 2) + Math.pow(vector.y, 2) + Math.pow(vector.z, 2)));
     }
 
-    public int cosineOfAnAngle(int x, int y, int z, int x2, int y2, int z2, int sum, int sum2) {
-        int xyz = x * x2 + y * y2 + z * z2;
-        int coal = xyz/(sum * sum2);
-return coal;
+    Vector crossProduct(Vector vector) {
+        int i = (y * vector.z - z * vector.y);
+        int j = (z * vector.x - x * vector.z);
+        int k = (x * vector.y - y * vector.x);
+        return new Vector(i, j, k);
     }
-    public int additionAndSubtraction(int x, int y, int z, int x2, int y2, int z2) {
-    int additionX = (x+x2);
-    int additionY = (y+y2);
-    int additionZ = (z+z2);
-    int subtractionX = (x+x2);
-    int subtractionY = (y+y2);
-    int subtractionZ = (z+z2);
-    return int(additionX), int(additionY), int(additionZ), int(subtractionX), int(subtractionY), int(subtractionZ);
+
+    public double cosineOfAnAngle(Vector vector) {
+        int scalarProduct = x * vector.x + y * vector.y + z * vector.z;
+        double lengthOfVector1 = Math.abs(Math.sqrt(Math.pow(x, 2)
+                + Math.pow(y, 2) + Math.pow(z, 2)));
+        double lengthOfVector2 = Math.abs(Math.sqrt(Math.pow(vector.x, 2)
+                + Math.pow(vector.y, 2) + Math.pow(vector.z, 2)));
+        return scalarProduct / (lengthOfVector1 * lengthOfVector2);
+    }
+
+    public Vector addition(Vector vector) {
+        return new Vector(x + vector.x, y + vector.y, z + vector.z);
+    }
+
+    public Vector Subtraction(Vector vector) {
+        return new Vector(x - vector.x, y - vector.y, z - vector.z);
+    }
+
+    public static Vector[] returning(int r) {
+        Random random = new Random();
+        Vector[] vectors = new Vector[r];
+        for (int i = 0; i < vectors.length; i++) {
+            vectors[i] = new Vector(random.nextInt(5), random.nextInt(5), random.nextInt(5));
+        }
+        return vectors;
     }
 }
 
