@@ -17,11 +17,12 @@ public class Student {
 
         if (averageMark >= 5) {
             return 100;
-        }
-        else if (averageMark < 5) ;
-        {
+        } else if (averageMark < 5) {
 
             return 80;
         }
+        return 0;
     }
+
+
 }

@@ -12,9 +12,10 @@ public class Aspirant extends Student{
         if (averageMark >= 5) {
             return 200;
         }
-        else if (averageMark < 5) ;
+        else if (averageMark < 5)
         {
             return 180;
         }
+        return 0;
     }
 }
