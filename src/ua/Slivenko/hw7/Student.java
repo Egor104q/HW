@@ -15,12 +15,13 @@ public class Student {
 
     public int getScholarship() {
 
-        for (int i = 5; i <= averageMark; i++) {
+        if (averageMark >= 5) {
             return 100;
         }
-        for (int i = 5; i > averageMark; i++) {
+        else if (averageMark < 5) ;
+        {
+
             return 80;
         }
-        return 0;
     }
 }

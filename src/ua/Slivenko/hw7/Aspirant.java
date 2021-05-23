@@ -9,12 +9,12 @@ public class Aspirant extends Student{
 
     @Override
     public int getScholarship() {
-            for (int i = 5; i <= averageMark ;) {
-                return 200;
-            }
-        for (int i = 5; i > averageMark; i++) {
+        if (averageMark >= 5) {
+            return 200;
+        }
+        else if (averageMark < 5) ;
+        {
             return 180;
         }
-            return 0;
     }
 }
